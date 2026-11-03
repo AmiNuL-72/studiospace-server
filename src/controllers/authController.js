@@ -2,10 +2,11 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const isProduction = process.env.NODE_ENV === "production" || !!process.env.VERCEL;
 const cookieOptions = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+  secure: isProduction,
+  sameSite: isProduction ? "none" : "lax",
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 
@@ -125,6 +126,7 @@ const loginUser = async (req, res) => {
         email: user.email,
         photo: user.photo,
         role: user.role,
+        token,
       },
     });
   } catch (error) {
@@ -178,6 +180,7 @@ const googleLogin = async (req, res) => {
         email: user.email,
         photo: user.photo,
         role: user.role,
+        token,
       },
     });
   } catch (error) {
