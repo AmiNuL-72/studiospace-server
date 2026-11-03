@@ -1,5 +1,8 @@
 # StudioSpace Server — Backend REST API
 
+> **Live Server API:** [https://studiospace-server-as8.vercel.app/](https://studiospace-server-as8.vercel.app/)  
+> **Client Live Website:** [https://studiospace-client-as8.vercel.app/](https://studiospace-client-as8.vercel.app/)
+
 High-performance Express.js & MongoDB backend powering the **StudioSpace** peer-to-peer workspace sharing platform.
 
 ---
